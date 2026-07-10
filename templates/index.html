@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi App de Descargas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Fondo carrusel -->
+    <div class="background-carousel">
+        <div class="carousel-track fila1">
+            <img src="{{ url_for('static', filename='img/fondo1.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo2.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo3.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo4.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo8.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo9.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo10.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo11.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo12.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo13.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo14.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo5.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo6.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo7.jpg') }}">
+        </div>
+        <div class="carousel-track fila2">
+            <img src="{{ url_for('static', filename='img/fondo5.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo6.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo7.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo8.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo14.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo13.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo12.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo11.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo10.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo9.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo4.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo3.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo2.jpg') }}">
+            <img src="{{ url_for('static', filename='img/fondo1.jpg') }}">
+        </div>
+    </div>
+    <!-- Overlay oscuro -->
+    <div class="overlay"></div>
+
+    <!-- Encabezado estilo hero -->
+    <header class="hero">
+        <h1>Mi App de Descargas</h1>
+        <p>Descarga tus videos y audios en la mejor calidad posible</p>
+    </header>
+
+    <!-- Formulario principal -->
+    <main>
+        <section class="formulario">
+            <form method="POST">
+                <div class="input-wrapper">
+                    <input type="text" name="url" placeholder="Pega tu enlace aquí" required />
+                </div>
+                <br><br>
+                <button type="submit" name="tipo" value="preview" class="rainbow-hover">
+                    <span class="sp">Ver Preview </span>
+                </button>
+                <button type="submit" name="tipo" value="video" class="rainbow-hover">
+                    <span class="sp">Descargar Video </span>
+                </button>
+                <button type="submit" name="tipo" value="audio" class="rainbow-hover">
+                    <span class="sp">Descargar Audio </span>
+                </button>
+            </form>
+
+        </section>
+
+        {% if preview %}
+        <section class="preview">
+            <h2>{{ titulo }}</h2>
+            <img src="{{ miniatura }}" alt="Miniatura del video" class="miniatura">
+            <p>¿Quieres descargar este video?</p>
+        </section>
+        {% endif %}
+
+        <!-- Ventajas estilo tarjetas -->
+        <section class="ventajas">
+            <div class="card">🎥 <h3>Video</h3>
+                <p>Descarga en la mejor calidad.</p>
+            </div>
+            <div class="card">🎵 <h3>Audio</h3>
+                <p>Convierte tus videos en música.</p>
+            </div>
+            <div class="card">⚡ <h3>Rápido</h3>
+                <p>Descargas optimizadas con FFmpeg.</p>
+            </div>
+            <div class="card">📂 <h3>Organizado</h3>
+                <p>Archivos guardados en carpetas separadas.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+    <p>Creado por José – Portafolio UPEA © 2026</p>
+</footer>
+
+</body>
+
+</html>

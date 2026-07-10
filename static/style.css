@@ -1,0 +1,286 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #e0e0e0;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+}
+
+.overlay {
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 4.5em;          /* aún más grande */
+    font-weight: 900;          /* súper grueso */
+    text-transform: uppercase; /* todo en mayúsculas */
+    letter-spacing: 1px;       /* menos espacio entre letras */
+    line-height: 1.1;          /* reduce espacio vertical entre líneas */
+    color: turquoise;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.6em;          /* subtítulo más grande */
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-top: 10px;          /* más cerca del título */
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+
+
+.input-wrapper {
+    display: inline-block;
+    padding: 2px; /* más delgado */
+    border-radius: 40px;
+    background: linear-gradient(
+        90deg,
+        #866ee7,
+        #ea60da,
+        #ed8f57,
+        #fbd41d,
+        #2cca91
+    );
+    background-size: 300% 300%;
+    animation: rainbow-move 5s linear infinite;
+}
+
+
+.input-wrapper input[type="text"] {
+    padding: 20px;
+    width: 90%;
+    font-size: 1.9em;
+    background: #1e1e1e;   /* oscuro */
+    color: #e0e0e0;
+    border: none;          /* sin borde propio */
+    border-radius: 40px;   /* coincide con el contenedor */
+    outline: none;
+}
+
+/* Animación del gradiente */
+@keyframes rainbow-move {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+
+
+/* Botón estilo rainbow-hover */
+.rainbow-hover {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff7576;
+  background-color: #2B3044;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  position: relative;
+  line-height: 24px;
+  border-radius: 9px;
+  box-shadow: 0px 1px 2px #2B3044,
+              0px 4px 16px #2B3044;
+  transform-style: preserve-3d;
+  transform: scale(var(--s, 1)) perspective(600px)
+             rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  perspective: 600px;
+  transition: transform 0.1s;
+}
+
+.rainbow-hover:active {
+  transition: 0.3s;
+  transform: scale(0.93);
+}
+
+/* Texto arcoiris dentro del botón */
+.sp {
+  background: linear-gradient(
+      90deg,
+      #866ee7,
+      #ea60da,
+      #ed8f57,
+      #fbd41d,
+      #2cca91
+    );
+  -webkit-background-clip: text;   /* para navegadores basados en WebKit */
+  -webkit-text-fill-color: transparent; /* hace que el texto sea transparente y se vea el gradiente */
+  background-clip: text;           /* soporte adicional */
+  display: inline-block;
+}
+
+
+
+
+.preview {
+    background: #1e1e1e;
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    width: 60%;
+    color: turquoise;
+    box-shadow: 0 0 15px rgba(64,224,208,0.5);
+    transition: 0.3s;
+}
+
+.preview:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(64,224,208,0.8);
+}
+
+.preview .miniatura {
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.ventajas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    gap: 20px;
+}
+
+/* Tarjeta con efecto brillante */
+.card {
+  position: relative;
+  width: 190px;
+  height: 154px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  padding: 12px;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  left: -5px;
+  margin: auto;
+  width: 200px;
+  height: 264px;
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
+  z-index: -10;
+  pointer-events: none;
+  transition: all 0.9s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(-45deg, #fc00ff 0%, #00dbde 100%);
+  transform: translate3d(0, 0, 0) scale(0.95);
+  filter: blur(20px);
+}
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.card p {
+  font-size: 14px;
+  margin: 0;
+}
+
+.card p:last-child {
+  color: #e81cff;
+  font-weight: 600;
+}
+
+.card:hover::after {
+  filter: blur(30px);
+}
+
+.card:hover::before {
+  transform: rotate(-90deg) scaleX(1.34) scaleY(0.77);
+}
+
+footer {
+    background: #0f2027;
+    padding: 20px;
+    margin-top: 40px;
+    color: turquoise;
+}
+
+
+
+
+
+.background-carousel {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    overflow: hidden;
+    z-index: -2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/* Configuración general */
+.carousel-track {
+    display: flex;
+    width: calc(250px * 10); /* ancho según cantidad de imágenes */
+}
+
+.carousel-track img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+/* Animaciones simultáneas */
+.fila1 {
+    animation: scroll-left 30s linear infinite;
+    transform: translateX(-40%); /* empieza casi al final */
+}
+.fila2 {
+    animation: scroll-right 30s linear infinite;
+    transform: translateX(-40%); /* también empieza adelantada */
+}
+
+/* Scroll hacia la izquierda */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-40%); }
+}
+
+/* Scroll hacia la derecha */
+@keyframes scroll-right {
+    0% { transform: translateX(-10%); }
+    100% { transform: translateX(0); }
+}
+
+/* Overlay oscuro */
+.overlay {
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: -1;
+}
+
